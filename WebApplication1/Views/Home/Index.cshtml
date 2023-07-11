@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WebApplication1.Models.Anime>
+@{
+    ViewData["Title"] = "Каталог товаров";
+    //Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Магазин аниме атрибутики</title>
+</head>
+<body>
+    <h3>Манга</h3>
+    <div class="row mt-5 mb-2"> 
+        @foreach (var manga in Model)
+        {
+        <div class="col-lg-4">
+            <img class="img-thumbnail" src="@manga.img" alt="@manga.Name" />
+            <h2>@manga.Name</h2>
+            <p>Автор: @manga.Author</p>
+            <p>Цена:  @manga.Price</p> 
+            <p><a href="~/Home/Buy/@manga.Id">Купить</a></p> 
+        </div>
+        }
+    </div>
+</body>
+</html>
